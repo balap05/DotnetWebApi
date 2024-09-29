@@ -19,5 +19,8 @@ COPY --from=build /app/out .
 # Expose port 80 for the application
 EXPOSE 80
 
+# Set the application to listen on IPv4 only
+ENV ASPNETCORE_URLS=http://0.0.0.0:80
+
 # Run the application
 ENTRYPOINT ["dotnet", "DemoWebApi.dll"]
